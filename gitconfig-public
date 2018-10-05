@@ -1,0 +1,42 @@
+[color]
+    ui = auto
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+  [color]
+    ui = true
+  [color "diff"]
+    whitespace = red reverse
+[core]
+editor = vim
+
+[alias]
+  ci = commit
+  st = status
+  co = checkout
+  br = branch
+  l = "log --graph --pretty=format:'%Cred%h%Creset  -%C(yellow)%d%Creset %s (%Cgreen%cr%Creset, %Cblue%an%Creset)' --abbrev-commit --date=relative"
+  ac = commit -a -m 'auto commit'
+  headless = !sh -c 'git symbolic-ref HEAD refs/heads/$0 && rm .git/index && git clean -fdx'
+  release = !sh -c 'TAG=$(date -u +%Y%m%d) && git tag -a -m ${TAG} ${TAG}'
+  lg = "log --graph --pretty=format:'%Cred%h%Creset  -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+
+[pull]
+  rebase = true
+
+[push]
+  default = current
+
+[user]
+  name = My NiftyName
+  email = my.niftyname@thecankerdeath.com
